@@ -35,13 +35,22 @@ function App() {
     return (
       <div className='App'>
         <Head />
+        <div className='countryName'>
+          <input placeholder='Country'></input>
+        </div>
 
         <div className='table'>
           <div className='countrySelection'>
-            <select onChange={handleSelection}>
-              <option value='Canada'>Canada</option>
-              <option value='Russia'>Russia</option>
-              <option value='US'>USA</option>
+            <select className='countriesOption' onChange={handleSelection}>
+              <option className='options' value='Canada'>
+                Canada
+              </option>
+              <option className='options' value='Russia'>
+                Russia
+              </option>
+              <option className='options' value='US'>
+                USA
+              </option>
             </select>
           </div>
           <table>
@@ -49,7 +58,7 @@ function App() {
               <tr class='tblHeads'>
                 <th>Province</th>
 
-                <th>Infection</th>
+                <th>Infected</th>
 
                 <th>Recovered</th>
 
