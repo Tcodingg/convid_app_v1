@@ -24,13 +24,12 @@ function App() {
   }, [selectedCountry]);
 
   function handleCountryName(e) {
-    const countryNameInput = e.target.value
-      .trim()
-      .toLowerCase()
-      .charAt(0)
-      .toUpperCase();
+    const countryNameInput = e.target.value.trim().toLowerCase();
+    const countryNameToUpper =
+      countryNameInput.charAt(0).toUpperCase() + countryNameInput.slice(1);
     if (e.key === 'Enter') {
-      console.log(countryNameInput);
+      setSelectedCountry(countryNameToUpper);
+      setMyCountryData([]);
     }
   }
 
@@ -45,7 +44,11 @@ function App() {
       <div className='App'>
         <Head />
         <div className='countryName'>
-          <input onKeyDown={handleCountryName} placeholder='Country'></input>
+          <input
+            value={selectedCountry}
+            onKeyDown={handleCountryName}
+            placeholder='Country'
+          ></input>
         </div>
 
         <div className='table'>
