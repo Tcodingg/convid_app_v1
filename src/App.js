@@ -23,7 +23,16 @@ function App() {
       });
   }, [selectedCountry]);
 
-  console.log(myCountryData);
+  function handleCountryName(e) {
+    const countryNameInput = e.target.value
+      .trim()
+      .toLowerCase()
+      .charAt(0)
+      .toUpperCase();
+    if (e.key === 'Enter') {
+      console.log(countryNameInput);
+    }
+  }
 
   function handleSelection(e) {
     const country = e.target.value;
@@ -36,7 +45,7 @@ function App() {
       <div className='App'>
         <Head />
         <div className='countryName'>
-          <input placeholder='Country'></input>
+          <input onKeyDown={handleCountryName} placeholder='Country'></input>
         </div>
 
         <div className='table'>
@@ -55,7 +64,7 @@ function App() {
           </div>
           <table>
             <thead>
-              <tr class='tblHeads'>
+              <tr className='tblHeads'>
                 <th>Province</th>
 
                 <th>Infected</th>
